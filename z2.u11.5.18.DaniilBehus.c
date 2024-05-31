@@ -26,4 +26,17 @@ Node* createNode(int data) {
     return newNode;
 }
 
+//vytvorenie nahodneho cyklickeho dvojsmerneho zoznamu
+CTWL* ctwl_create_random_bimodal(unsigned int size) {
+    if (size < 3) {
+        printf("Chyba: Velkost zoznamu musi byt aspon 3\n");
+        return NULL;
+    }
 
+    CTWL* ctwl = (CTWL*)malloc(sizeof(CTWL));
+    if (ctwl == NULL) {
+        printf("Chyba: Nepodarilo sa alokovat pamat pre zoznam\n");
+        return NULL;
+    }
+    
+}
