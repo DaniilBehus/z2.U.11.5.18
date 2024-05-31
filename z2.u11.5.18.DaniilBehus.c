@@ -56,3 +56,20 @@ CTWL* ctwl_create_random_bimodal(unsigned int size) {
 
     return ctwl;
 }
+
+
+// Funkcia na vypis hodnot prvkov zoznamu
+void printList(CTWL* ctwl) {
+    if (ctwl == NULL || ctwl->head == NULL) {
+        printf("Zoznam je prazdny\n");
+        return;
+    }
+
+    printf("Hodnoty prvkov zoznamu:\n");
+    Node* current = ctwl->head;
+    do {
+        printf("%d ", current->data);
+        current = current->next;
+    } while (current != ctwl->head);
+    printf("\n");
+}
