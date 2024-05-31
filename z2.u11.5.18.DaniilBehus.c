@@ -8,13 +8,13 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-// cyklicky dvojmerny zoznam
+// Cyklicky dvojmerny zoznam
 typedef struct CyclicTwoWayList {
     Node* head;
 } CTWL;
 
 
-// vytvorenie novåho uzla
+// Vytvorenie novåho uzla
 Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if (newNode == NULL) {
@@ -26,7 +26,7 @@ Node* createNode(int data) {
     return newNode;
 }
 
-//vytvorenie nahodneho cyklickeho dvojsmerneho zoznamu
+//Vytvorenie nahodneho cyklickeho dvojsmerneho zoznamu
 CTWL* ctwl_create_random_bimodal(unsigned int size) {
     if (size < 3) {
         printf("Chyba: Velkost zoznamu musi byt aspon 3\n");
@@ -51,4 +51,8 @@ CTWL* ctwl_create_random_bimodal(unsigned int size) {
         current->next = createNode(rand() % 100); // Generovanie dalsieho uzla s nahodnou hodnotou
         current = current->next;
     }
+    // Spojenie posledneho uzla s prvym pre vytvorenie cyklickosti
+    current->next = ctwl->head;
+
+    return ctwl;
 }
