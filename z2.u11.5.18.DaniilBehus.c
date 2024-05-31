@@ -73,3 +73,19 @@ void printList(CTWL* ctwl) {
     } while (current != ctwl->head);
     printf("\n");
 }
+
+
+
+int main() {
+    unsigned int size = 5; // Velkost zoznamu
+    CTWL* ctwl = ctwl_create_random_bimodal(size);
+
+    if (ctwl != NULL) {
+        printf("Uspesne vytvoreny cyklicky dvojsmerny zoznam.\n");
+        printList(ctwl); // Vypisat hodnoty prvkov zoznamu
+    } else {
+        printf("Nepodarilo sa vytvorit cyklicky dvojsmerny zoznam.\n");
+    }
+
+    return 0;
+}
