@@ -14,7 +14,7 @@ typedef struct CyclicTwoWayList {
 } CTWL;
 
 
-// Funkcia na vytvorenie novåho uzla
+// vytvorenie novåho uzla
 Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if (newNode == NULL) {
@@ -39,4 +39,16 @@ CTWL* ctwl_create_random_bimodal(unsigned int size) {
         return NULL;
     }
     
+    
+    // Inicializacia generatora nahodnych cisel
+    srand(time(NULL));
+
+    ctwl->head = createNode(rand() % 100); // Pociatocna hodnota prveho uzla
+
+    Node* current = ctwl->head;
+    int i;
+    for (i = 1; i < size; i++) {
+        current->next = createNode(rand() % 100); // Generovanie dalsieho uzla s nahodnou hodnotou
+        current = current->next;
+    }
 }
